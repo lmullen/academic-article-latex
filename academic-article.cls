@@ -1,8 +1,15 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Academic Article XeLaTex Class
 % Lincoln Mullen (lincoln@lincolnmullen.com)
 % 
 % A XeLaTeX class that extends the article class and adds some formatting options. Inspired by Cambridge University Press style.
+% 
+% I got a lot of help from these sites:
+% 	David J. Perry, Creating Scholarly Multilingual Documents Using Unicode, OpenType, and XeTeX
+% 	http://scholarsfonts.net/xetextt.pdf
 % 
 % (c) Copyright 2011 Lincoln Mullen.
 % 
@@ -35,8 +42,40 @@
 % Load the article class, which is being modified
 \LoadClass{article}
 
+% fontspec gives access to unicode fonts and OT fonts
+\usepackage{fontspec}
+
+% This package might not be necessary, but it should load fontspec. It provides extra customizations for XeLaTeX.
+\usepackage{xltxtra}
+
+% \setmainfont{Adobe Caslon Pro}
+\setmainfont[Ligatures={Common},Numbers=OldStyle]{Adobe Caslon Pro}
+\setmonofont[Scale=0.8]{Monaco} 
+\setsansfont[Scale=0.9]{Optima Regular} 
+
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
+
+
+% converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase} 
+
+% Substitute for older package babel, sets main language and could set other languages if necessary.
+% \usepackage{polyglossia}
+% \setdefaultlanguage{english}
+
+% graphix allows embedded graphics
+\usepackage{graphix}
+
+% helps typeset urls
+\usepackage{url}
+
 % \usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Lincoln Mullen - CV},pdfauthor={Lincoln Mullen}]{hyperref}  
 % \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
+
+% xunicode substitutes precombined glyphs for combining characters. Needs to be the last package loaded, I think.
+\usepackage{xunicode}
+
 
 % OTHER CODE %%%%%%%%%%
 % Single horizontal space after punctuation
