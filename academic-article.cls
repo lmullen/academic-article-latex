@@ -22,7 +22,8 @@
 
 
 % DECLARATION OF OPTIONS %%%%%%%%%%
-% Pass all options to the article class
+% Pass all options to the article class. 
+% This class essentially takes the article class and preloads a bunch of options.
 \DeclareOption* {\PassOptionsToClass{\CurrentOption}{article}}
 
 
@@ -33,10 +34,9 @@
 % PACKAGE LOADING %%%%%%%%%%
 % Load the article class, which is being modified
 \LoadClass{article}
-% Make the font Palatino
-\usepackage{mathpazo}
-\usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Lincoln Mullen - CV},pdfauthor={Lincoln Mullen}]{hyperref}  
-\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
+
+% \usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Lincoln Mullen - CV},pdfauthor={Lincoln Mullen}]{hyperref}  
+% \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
 
 % OTHER CODE %%%%%%%%%%
 % Single horizontal space after punctuation
