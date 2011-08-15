@@ -46,10 +46,10 @@
 \usepackage{fontspec}
 
 % This package might not be necessary, but it should load fontspec. It provides extra customizations for XeLaTeX.
-% \usepackage{xltxtra}
+\usepackage{xltxtra}
 
 % \setmainfont{Adobe Caslon Pro}
-\setmainfont[Ligatures=Common,Numbers=OldStyle,Mapping=tex-text]{Adobe Caslon Pro}
+\setmainfont[Ligatures=Common,Ligatures=Contextual,Numbers=OldStyle,Mapping=tex-text]{Adobe Caslon Pro}
 \setmonofont[Scale=0.8]{Monaco} 
 \setsansfont[Scale=0.9]{Optima Regular} 
 
@@ -79,6 +79,27 @@
 
 % xunicode substitutes precombined glyphs for combining characters. Needs to be the last package loaded, I think.
 \usepackage{xunicode}
+
+% DEFINE OUR OWN TITLE
+
+\newcommand{\maketitlepage}{%
+  \null\vfil
+  \vskip 60\p@
+  \begin{center}%
+  {\large \@date \par}%       % Set date in \large size.
+	\vskip 1.5em%
+    {\LARGE \@title \par}%
+    \vskip 3em%
+    {\large
+     \lineskip .75em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+      \vskip 1.5em%
+  \end{center}\par
+  \@thanks
+  \vfil\null%
+}
 
 
 % OTHER CODE %%%%%%%%%%
