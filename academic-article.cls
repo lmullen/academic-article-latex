@@ -46,10 +46,10 @@
 \usepackage{fontspec}
 
 % This package might not be necessary, but it should load fontspec. It provides extra customizations for XeLaTeX.
-\usepackage{xltxtra}
+% \usepackage{xltxtra}
 
 % \setmainfont{Adobe Caslon Pro}
-\setmainfont[Ligatures={Common},Numbers=OldStyle]{Adobe Caslon Pro}
+\setmainfont[Ligatures=Common,Numbers=OldStyle,Mapping=tex-text]{Adobe Caslon Pro}
 \setmonofont[Scale=0.8]{Monaco} 
 \setsansfont[Scale=0.9]{Optima Regular} 
 
@@ -58,20 +58,24 @@
 
 
 % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
-\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase} 
+% \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}  
 
 % Substitute for older package babel, sets main language and could set other languages if necessary.
 % \usepackage{polyglossia}
 % \setdefaultlanguage{english}
 
 % graphix allows embedded graphics
-\usepackage{graphix}
+% \usepackage{graphix}
 
-% helps typeset urls
+% helps typeset urls. Might not be necessary with hyperref.
 \usepackage{url}
 
-% \usepackage[xetex, bookmarks, colorlinks, breaklinks, pdftitle={Lincoln Mullen - CV},pdfauthor={Lincoln Mullen}]{hyperref}  
-% \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
+% Changes the header style around
+% \usepackage{fancyhdr}
+
+% allows urls in PDFs, among other things. Hyperref should be loaded close to last.
+\usepackage[xetex,bookmarks,colorlinks,breaklinks,pdfauthor={Lincoln Mullen},pdfcreator={XeLaTeX}]{hyperref}
+\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
 
 % xunicode substitutes precombined glyphs for combining characters. Needs to be the last package loaded, I think.
 \usepackage{xunicode}
@@ -86,9 +90,13 @@
 % Anything needed at the end of the document goes here
 \AtEndDocument{
 }
+
+
 % DEFINE ENVIRONEMENTS AND COMMANDS %%%%%%%%%%
+
 % Define an environment for the bibliographic information of a reviewed book.
 \newenvironment{reviewedbook}{\begin{quote}}{\end{quote}}
+
 % An command for paragraph-style section, borrowed from tufte-latex
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
