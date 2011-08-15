@@ -75,6 +75,9 @@
 % This package lets us change case without the problems inherent in LaTeX's or TeX's own commands. This will be necessary for the small caps titles.
 \usepackage[overload]{textcase}
 
+% load the titling package, which we'll let us control the appearance of the title. The actual commands appear below.
+% \usepackage{titling}
+
 % allows urls in PDFs, among other things. Hyperref should be loaded close to last.
 \usepackage[xetex,bookmarks,colorlinks,breaklinks,pdfauthor={Lincoln Mullen},pdfcreator={XeLaTeX}]{hyperref}
 \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
@@ -82,8 +85,9 @@
 % xunicode substitutes precombined glyphs for combining characters. Needs to be the last package loaded, I think.
 \usepackage{xunicode}
 
-% DEFINE OUR OWN TITLE
-
+% DEFINE OUR OWN TITLE BY RENEWING \@maketite
+% This works, except I can't transform the date and author to lowercase, so that the small caps look right. The \MakeLowercase command can be issued without a problem in the document itself, but that's kind of yanky. Perhaps the titling package would work, though I can't figure out how to change the order of title elements around using that package.
+% 
 \renewcommand{\@maketitle}{%
   \null
   \vskip 2em%
@@ -102,17 +106,16 @@
   \end{center}\par
   \vfil%
 }
-
-
+% 
 % OTHER CODE %%%%%%%%%%
 % Single horizontal space after punctuation
 \frenchspacing
 % Anything needed at the beginning of the document goes here
-\AtBeginDocument{
-}
+% \AtBeginDocument{
+% }
 % Anything needed at the end of the document goes here
-\AtEndDocument{
-}
+% \AtEndDocument{
+% }
 
 
 % DEFINE ENVIRONEMENTS AND COMMANDS %%%%%%%%%%
