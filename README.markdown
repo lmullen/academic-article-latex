@@ -1,12 +1,12 @@
 # Academic Article XeLaTeX Class #
 
-A [XeLaTeX](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex) class that extends the article class. This class uses better fonts, redefines the \maketitle command to format the title, loads some packages for general use. The typography is inspired by the Cambridge University Press style for books.
+A [XeLaTeX](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex) class that extends the article class. This class uses better fonts, redefines the `\maketitle` command to format the title, loads some packages for general use. The typography is inspired by the Cambridge University Press style for books.
 
 ## Author ##
 
-Lincoln Mullen
-<lincoln@lincolnmullen.com>
-<http://lincolnmullen.com/>
+Lincoln Mullen  
+<lincoln@lincolnmullen.com>  
+<http://lincolnmullen.com/>  
 Twitter: [@lincolnmullen](http://twitter.com/lincolnmullen)
 
 ## Caveat ##
@@ -64,7 +64,7 @@ To use this command, add the following to your document:
 	
 	\newthought{This is the start of a new thought.} This paragraph will have a blank line in front of it, and the words contained in braces will be in small caps.
 
-This `newthought` command is borrowed from Tufte-LaTex.
+This `newthought` command is borrowed from [Tufte-LaTeX](http://code.google.com/p/tufte-latex/).
 
 ## Sample Documents ##
 
