@@ -22,6 +22,12 @@ To install this class:
 1.	Put `academic-article.cls` in your local texmf folder.
 2.	Run `texhash` on that folder.
 
+### Creating Your Document ###
+
+Your document must be compiled with `xelatex`. The basic command that you will enter at the command prompt is this:
+
+		$ xelatex my-document.tex
+
 ### Options ###
 
 Since the class extends the default LaTeX article class, you can use the standard set of options (e.g., page size, font size).
@@ -56,6 +62,7 @@ To use this command, add the following to your document:
 	
 	\newthought{This is the start of a new thought.} This paragraph will have a blank line in front of it, and the words contained in braces will be in small caps.
 
+This `newthought` command is borrowed from Tufte-LaTex.
 
 ## Sample Documents ##
 
