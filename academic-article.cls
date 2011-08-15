@@ -48,10 +48,9 @@
 % This package might not be necessary, but it should load fontspec. It provides extra customizations for XeLaTeX.
 \usepackage{xltxtra}
 
-% \setmainfont{Adobe Caslon Pro}
-\setmainfont[Ligatures=Common,Ligatures=Contextual,Numbers=OldStyle,Mapping=tex-text]{Adobe Caslon Pro}
+\setmainfont[Ligatures=Common,Numbers=OldStyle,Mapping=tex-text]{Adobe Caslon Pro}
 \setmonofont[Scale=0.8]{Monaco} 
-\setsansfont[Scale=0.9]{Optima Regular} 
+% \setsansfont[Scale=0.9,Mapping=tex-text]{MyriadPro} 
 
 % ---- CUSTOM AMPERSAND
 \newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
@@ -82,22 +81,22 @@
 
 % DEFINE OUR OWN TITLE
 
-\newcommand{\maketitlepage}{%
-  \null\vfil
-  \vskip 60\p@
+\renewcommand{\@maketitle}{%
+  % \null\vfil
+  \vskip 2em%
   \begin{center}%
-  {\large \@date \par}%       % Set date in \large size.
+  { \@date \par}%       % Set date in \large size.
 	\vskip 1.5em%
-    {\LARGE \@title \par}%
+    {\Large \@title \par}%
     \vskip 3em%
     {\large
      \lineskip .75em%
       \begin{tabular}[t]{c}%
-        \@author
+        {\textsc \@author}
       \end{tabular}\par}%
       \vskip 1.5em%
   \end{center}\par
-  \@thanks
+  % \@thanks
   \vfil\null%
 }
 
