@@ -9,7 +9,8 @@
 % 
 % I got a lot of help from these sites:
 % 	David J. Perry, Creating Scholarly Multilingual Documents Using Unicode, OpenType, and XeTeX
-% 	http://scholarsfonts.net/xetextt.pdf
+% 		http://scholarsfonts.net/xetextt.pdf
+%	As well as the documentation for the various packages used below. 
 % 
 % (c) Copyright 2011 Lincoln Mullen.
 % 
@@ -22,7 +23,7 @@
 
 % IDENTIFICATION %%%%%%%%%%
 % Identify the class name and version
-\ProvidesClass{academic-article}[2011/08/14 v0.1 Academic article class for XeLaTeX]
+\ProvidesClass{academic-article}[2011/08/15 v0.1 Academic article class for XeLaTeX]
 
 % This class depends on LaTeX --- not sure what this should be
 \NeedsTeXFormat{LaTeX2e}
@@ -75,11 +76,11 @@
 % This package lets us change case without the problems inherent in LaTeX's or TeX's own commands. This will be necessary for the small caps titles.
 \usepackage[overload]{textcase}
 
-% load the titling package, which we'll let us control the appearance of the title. The actual commands appear below.
-% \usepackage{titling}
+% load the titling package, which we're using primarily to keep \theauthor and \thetitle available to us after using \maketitle, so that we can pass those to hyperref and embed that data into the PDF info.
+\usepackage{titling}
 
 % allows urls in PDFs, among other things. Hyperref should be loaded close to last.
-\usepackage[xetex,bookmarks,colorlinks,breaklinks,pdfauthor={Lincoln Mullen},pdfcreator={XeLaTeX}]{hyperref}
+\usepackage[xetex,bookmarks,colorlinks,breaklinks,pdfcreator={XeLaTeX}]{hyperref}
 \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
 
 % xunicode substitutes precombined glyphs for combining characters. Needs to be the last package loaded, I think.
@@ -90,19 +91,19 @@
 % 
 \renewcommand{\@maketitle}{%
   \null
-  \vskip 2em%
+  \vskip 3em%
   \begin{center}%
   \let \footnote \thanks
-  {\textsc{\@date} \par}%       
-	\vskip 1.5em%
+  {\normalsize \textsc{\@date} \par}%       
+	\vskip 1.0em%
     {\Large \@title \par}%
-    \vskip 1.5em%
-    {\large
-     \lineskip .5em%
+    \vskip 1.0em%
+    {%
+     % \lineskip .5em%
       \begin{tabular}[t]{c}%
-        {\textsc{\@author}}%
+        {\normalsize \textsc{\@author}}%
       \end{tabular}\par}%
-      \vskip 1.5em%
+      \vskip 2.5em%
   \end{center}\par
   \vfil%
 }
@@ -111,11 +112,12 @@
 % Single horizontal space after punctuation
 \frenchspacing
 % Anything needed at the beginning of the document goes here
-% \AtBeginDocument{
-% }
+\AtBeginDocument{
+	
+}
 % Anything needed at the end of the document goes here
-% \AtEndDocument{
-% }
+\AtEndDocument{
+}
 
 
 % DEFINE ENVIRONEMENTS AND COMMANDS %%%%%%%%%%
