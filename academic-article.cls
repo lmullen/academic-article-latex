@@ -72,6 +72,9 @@
 % Changes the header style around
 % \usepackage{fancyhdr}
 
+% This package lets us change case without the problems inherent in LaTeX's or TeX's own commands. This will be necessary for the small caps titles.
+\usepackage[overload]{textcase}
+
 % allows urls in PDFs, among other things. Hyperref should be loaded close to last.
 \usepackage[xetex,bookmarks,colorlinks,breaklinks,pdfauthor={Lincoln Mullen},pdfcreator={XeLaTeX}]{hyperref}
 \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
@@ -82,22 +85,22 @@
 % DEFINE OUR OWN TITLE
 
 \renewcommand{\@maketitle}{%
-  % \null\vfil
+  \null
   \vskip 2em%
   \begin{center}%
-  { \@date \par}%       % Set date in \large size.
+  \let \footnote \thanks
+  {\textsc{\@date} \par}%       
 	\vskip 1.5em%
     {\Large \@title \par}%
-    \vskip 3em%
+    \vskip 1.5em%
     {\large
-     \lineskip .75em%
+     \lineskip .5em%
       \begin{tabular}[t]{c}%
-        {\textsc \@author}
+        {\textsc{\@author}}%
       \end{tabular}\par}%
       \vskip 1.5em%
   \end{center}\par
-  % \@thanks
-  \vfil\null%
+  \vfil%
 }
 
 
