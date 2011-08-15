@@ -27,6 +27,8 @@ To install this class:
 Your document must be compiled with `xelatex`. The basic command that you will enter at the command prompt is this:
 
 		$ xelatex my-document.tex
+		
+Like most LaTeX documents, you will probably have to compile the document several times so that all the links and references are properly worked out.
 
 ### Options ###
 
