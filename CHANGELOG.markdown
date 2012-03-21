@@ -10,6 +10,9 @@
 + Changed the `\section` and `\subsection` command to be italic, the
   same size as regular text, and centered (for A heads) or left aligned
   (for B heads).
++ Moved most metadata into separate section at the start of the
+  document, making it easier to change without editing preamble.
++ Now uses `biblatex`.
 	
 ## v0.1 2011/08/15 ##
 
