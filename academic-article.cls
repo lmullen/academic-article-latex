@@ -34,7 +34,7 @@
 % IDENTIFICATION %%%%%%%%%%
 
 % Identify the class name and version
-\ProvidesClass{academic-article}[2012/03/20 0.2 Academic article class for XeLaTeX]
+\ProvidesClass{academic-article}[2012/03/20 v0.2 Academic article class for XeLaTeX]
 
 % This class depends on LaTeX2e
 \NeedsTeXFormat{LaTeX2e}
@@ -42,22 +42,31 @@
 
 % DECLARE OPTIONS %%%%%%%%%%
 
+% packages needed to make xelatex work properly
+\usepackage{fontspec, xltxtra, xunicode}
+
+%set a default font, in case no option is passed
+\setmainfont[Ligatures=Common,			% use only common ligatures
+			 Numbers=OldStyle,			% use old style numbers for class
+			 Mapping=tex-text			% map common latex macros
+			]{Adobe Caslon Pro}
+
 % Choose Adobe Caslon Pro as the font. This font, plus ligatures and old
 % style figures, gives the closest approximation to the Cambridge
 % University Press style.
-\DeclareOption{caslon}{% 
+\DeclareOption{caslon}{ 
 	\setmainfont[Ligatures=Common,		% use only common ligatures
-				Numbers=OldStyle,		% use old style numbers for class
-				Mapping=tex-text		% map common latex macros
+				 Numbers=OldStyle,		% use old style numbers for class
+				 Mapping=tex-text		% map common latex macros
 				]{Adobe Caslon Pro}
 			}
 
 % Choose Minion Pro as the font. This font is a bit plainer than Caslon,
 % which makes the typeset document more understated.
-\DeclareOption{minion}{%
+\DeclareOption{minion}{
 	\setmainfont[Ligatures=Common,		% use only common ligatures
-				Numbers=OldStyle,		% use old style numbers for class
-				Mapping=tex-text		% map common latex macros
+				 Numbers=OldStyle,		% use old style numbers for class
+				 Mapping=tex-text		% map common latex macros
 				]{Minion Pro}
 			}
 
@@ -84,7 +93,7 @@
 \LoadClass{article}
 
 % packages needed to make xelatex work properly
-\usepackage{fontspec, xltxtra, xunicode}
+%\usepackage{fontspec, xltxtra, xunicode}
 
 % A better way to change case. Needed for the small caps titles.
 \usepackage[overload]{textcase}
@@ -129,8 +138,25 @@
   \vfil%
 }
 
-%don't number section headings
+% Redefine section and subsection commands to look like Cambridge
+% University Press style A heads and B heads 
+
+% Don't number section headings, even if they don't have an *
 \setcounter{secnumdepth}{0}
+
+% Borrow code from standard LaTeX article. Make A heads centered, sized
+% the same as regular type, and italic
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\centering\normalfont\normalsize\itshape}}
+
+% Borrow code from standard LaTeX article. Make B heads left-aligned,
+% sized the same as regular type, and italic
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\itshape}}
 
 % OTHER CODE %%%%%%%%%%
 

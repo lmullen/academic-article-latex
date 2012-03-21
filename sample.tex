@@ -6,6 +6,7 @@
 % (c) Copyright 2012 Lincoln Mullen. All Rights Reserved. 
 
 % You can use standard article.cls options here
+% You can choose between caslon and minion for the font
 \documentclass[11pt, caslon]{academic-article}
 
 % Document metadata
@@ -33,17 +34,17 @@
 \title{\mytitle}
 \date{\MakeLowercase{\mydate}}
 \author{\MakeLowercase{\myauthor}\thanks{Correspondence:
-	\mycorrespondence; e-mail: \href{mailto:\myemail}{\myemail}.}}
+	\mycorrespondence; \mbox{e-mail}: \href{mailto:\myemail}{\myemail}.}}
 
 % allows urls in PDFs, among other things. 
 \usepackage[xetex,					% produce commands for xetex
-			hypertexnames			% use guessable names for links
+			hypertexnames,			% use guessable names for links
 			breaklinks=true,		% allows link text to break across lines
 			bookmarks,				% generate bookmarks in PDF files
 			bookmarksnumbered,
 			plainpages=false,
 			colorlinks=true,		% color the links but set colors
-			linkcolor=BlueViolet,
+			linkcolor=black,
 			citecolor=black,
 			filecolor=black,
 			urlcolor=BlueViolet,
@@ -56,9 +57,10 @@
 % Format URLs properly
 \usepackage{url}
 
-% Use polyglossia to declare the language
-\usepackage{polyglossia}
-\setdefaultlanguage[american]{english}
+% Use babel (not polyglossia?) to define language
+\usepackage[english,
+			american
+			]{babel}
 
 % Set quotation styles
 \usepackage[autostyle=true,		%adapt quotation rules to the language
@@ -77,6 +79,11 @@
 
 % Define which BibTeX database to use
 \bibliography{dissertation.bib}
+
+% better colors for hyperref
+\usepackage[svgnames]{xcolor}
+%\usepackage[dvipsnames]{color}
+%\usepackage[usenames]{color}
 
 % A better way to change case. Needed for the small caps titles.
 \usepackage[overload]{textcase}
@@ -100,10 +107,7 @@
 \maketitle
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+tempor incididunt ut labore et dolore magna aliqua. Excepteur sint
 occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 mollit anim id est laborum.\footnote{First Last, \emph{The Name of A
 Book} (City: Publisher, 1600), 34--48.}
@@ -118,16 +122,23 @@ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
 occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
 adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-laboris nisi ut aliquip ex ea commodo consequat. 
+magna aliqua. 
 
-\newthought{Duis aute irure dolor in reprehenderit} in voluptate velit
+\newthought{The start of a new thought} looks like this. In voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
 id est laborum.\footnote{First Last, \emph{The Name of A Book} (City:
 Publisher, 1600), 34--48.}
 
-\subsection{A Subsection}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\subsection{Subsection headings are best in sentence capitalization}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
