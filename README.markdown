@@ -1,6 +1,11 @@
 # Academic Article XeLaTeX Class #
 
-A [XeLaTeX](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex) class that extends the article class. This class uses better fonts, redefines the `\maketitle` command to format the title, loads some packages for general use. The typography is inspired by the Cambridge University Press style for books.
+An
+[XeLaTeX](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex)
+class that extends the `article` class. This class uses better fonts,
+and changes the design of the document. The typography is inspired by
+the Cambridge University Press style for books. The sample document also
+loads useful packages.
 
 ## Author ##
 
@@ -11,7 +16,12 @@ Twitter: [@lincolnmullen](http://twitter.com/lincolnmullen)
 
 ## Caveat ##
 
-**Warning**: This is a very early version of this class. Some of what it does is pretty kludgy. In particular, the class is not good about checking if you have the required packages or fonts. This class has only be tested on my personal machine, running Mac OS X 10.7, with some Adobe Pro fonts installed. And some of the options are hardcoded in to my personal information, such as name. Before using the package you should look through the code and change anything that doesn't suit you.
+This class is not good about checking if you have the required packages
+or fonts. This class has only be tested on my personal machine, running
+Mac OS X 10.7, with some Adobe Pro fonts installed. And some of the
+options are hardcoded in to my personal information, such as name.
+Before using the package you should look through the code and change
+anything that doesn't suit you.
 
 ## Usage ##
 
@@ -24,23 +34,56 @@ To install this class:
 
 ### Creating Your Document ###
 
-Your document must be compiled with `xelatex`. The basic command that you will enter at the command prompt is this:
+Your document must be compiled with `xelatex`. The basic command that
+you will enter at the command prompt is this:
 
 		$ xelatex my-document.tex
 		
-Like most LaTeX documents, you will probably have to compile the document several times so that all the links and references are properly worked out.
+Like most LaTeX documents, you will probably have to compile the
+document several times so that all the links and references are properly
+worked out.
 
 ### Options ###
 
-Since the class extends the default LaTeX article class, you can use the standard set of options (e.g., page size, font size).
+Since the class extends the default LaTeX article class, you can use the
+standard set of options (e.g., page size, font size).
+
+### Metadata ###
+
+At the beginning of the sample document, there are a series of
+definitions of metadata. For example, you will see the lines
+
+		\def\myauthor{Lincoln A. Mullen}
+		\def\myaffiliation{Brandeis University}
+		\def\mytitle{Title Goes Here}
+
+These definitions of metadata are intended to make it easier for you to
+change the information in the document. For example, instead of changing
+the e-mail twice in the author field, it is only necessary to change it
+in the definition of the metadata at the beginning. This is especially
+important since the text of the author and date fields can this way be
+lowercased automatically in order to look good in small caps, and also
+because the class passes the metadata along to be embedded in the PDF.
 
 ### Fonts ###
 
-This class uses Adobe Caslon Pro as the default font. If you wish to change that, look through the code for the 
+This class offers two fonts as an option, Adobe Caslon Pro and Minion
+Pro. The fonts can be chosen by passing the `caslon` or `minion` option
+to the document class. For example:
+
+		\documentclass[caslon, 11pt]{academic-article}
+
+The class uses Adobe Caslon Pro as the default font if no option is passed to it. 
+
+If you wish to use another font, look through the code for the lines
 
 		\setmainfont[options]{Adobe Caslon Pro}
 
-command, and change the font name to the _display_ name of the font you want to use, rather than the filename of the font. For example, you might change "Adobe Caslon Pro" to "Times New Roman." The options provided in this class will only work if the font you are using supports those OpenType features.
+command, and change the font name to the _display_ name of the font you
+want to use, rather than the filename of the font. For example, you
+might change "Adobe Caslon Pro" to "Times New Roman." The options
+provided in this class will only work if the font you are using supports
+those OpenType features.
 
 ### Defined Environments and Commands ###
 
@@ -60,9 +103,12 @@ This class defines a command, `newthought`. This command adds something like a s
 
 To use this command, add the following to your document:
 
-	This is a standard pagraph. It probably concludes a point that you've been making, so it's time for a new thought soon.
+	This is a standard pagraph. It probably concludes a point that
+	you've been making, so it's time for a new thought soon.
 	
-	\newthought{This is the start of a new thought.} This paragraph will have a blank line in front of it, and the words contained in braces will be in small caps.
+	\newthought{This is the start of a new thought.} This paragraph will
+	have a blank line in front of it, and the words contained in braces
+	will be in small caps.
 
 This `newthought` command is borrowed from [Tufte-LaTeX](http://code.google.com/p/tufte-latex/).
 
