@@ -133,9 +133,9 @@
       \begin{tabular}[t]{c}%
         {\normalsize \textsc{\@author}}%
       \end{tabular}\par}%
-      \vskip 2.5em%
+      \vskip 3em%
   \end{center}\par
-  \vfil%
+  %\vfil%
 }
 
 % Redefine section and subsection commands to look like Cambridge
