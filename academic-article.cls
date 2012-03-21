@@ -34,7 +34,7 @@
 % IDENTIFICATION %%%%%%%%%%
 
 % Identify the class name and version
-\ProvidesClass{academic-article}[2012/03/20 v0.2 Academic article class for XeLaTeX]
+\ProvidesClass{academic-article}[2012/03/21 v0.2.1 Academic article class for XeLaTeX]
 
 % This class depends on LaTeX2e
 \NeedsTeXFormat{LaTeX2e}

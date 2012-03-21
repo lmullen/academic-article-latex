@@ -1,5 +1,9 @@
 #	Changelog
 
+## v0.2.1 2012/03/21 ##
+
++ Fixed problem with vertical space after title
+
 ## v0.2 2012/03/20 ##
 
 + Moved many calls to packages into the sample document. This is
