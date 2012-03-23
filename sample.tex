@@ -36,6 +36,9 @@
 \author{\MakeLowercase{\myauthor}\thanks{Correspondence:
 	\mycorrespondence; \mbox{e-mail}: \href{mailto:\myemail}{\myemail}.}}
 
+% better colors for hyperref
+\usepackage[usenames, dvipsnames]{xcolor}
+
 % allows urls in PDFs, among other things. 
 \usepackage[xetex,					% produce commands for xetex
 			hypertexnames,			% use guessable names for links
@@ -47,7 +50,7 @@
 			linkcolor=black,
 			citecolor=black,
 			filecolor=black,
-			urlcolor=BlueViolet,
+			urlcolor=BrickRed,
 			pdfauthor={\myauthor},	% pass metadata into the PDF file
 			pdftitle={\mytitle},
 			pdfkeywords={\mykeywords},
@@ -79,11 +82,6 @@
 
 % Define which BibTeX database to use
 \bibliography{dissertation.bib}
-
-% better colors for hyperref
-\usepackage[svgnames]{xcolor}
-%\usepackage[dvipsnames]{color}
-%\usepackage[usenames]{color}
 
 % A better way to change case. Needed for the small caps titles.
 \usepackage[overload]{textcase}
