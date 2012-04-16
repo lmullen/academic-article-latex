@@ -45,6 +45,9 @@
 % packages needed to make xelatex work properly
 \usepackage{fontspec, xltxtra, xunicode}
 
+% this package needs to be configured
+\usepackage{microtype}
+
 %set a default font, in case no option is passed
 \setmainfont[Ligatures=Common,			% use only common ligatures
 			 Numbers=OldStyle,			% use old style numbers for class
