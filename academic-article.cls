@@ -1,13 +1,10 @@
-% !TEX TS-program = xelatex
-% !TEX encoding = UTF-8
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Academic Article XeLaTex Class 
+% Academic Article LaTex Class 
 % Lincoln Mullen
 % lincoln@lincolnmullen.com
 % http://lincolnmullen.com
 % 
-% A XeLaTeX class that extends the article class and adds some
+% A LaTeX class that extends the article class and adds some
 % formatting options. Inspired by Cambridge University Press style.
 % 
 % I got a lot of help from these sites: David J. Perry, Creating
@@ -34,44 +31,23 @@
 % IDENTIFICATION %%%%%%%%%%
 
 % Identify the class name and version
-\ProvidesClass{academic-article}[2012/03/21 v0.2.1 Academic article class for XeLaTeX]
+\ProvidesClass{academic-article}[2012/06/13 v0.3.0 Academic article class for LaTeX]
 
 % This class depends on LaTeX2e
 \NeedsTeXFormat{LaTeX2e}
 
+% Load the article class, which is being modified
+\LoadClass{article}
+
+
 
 % DECLARE OPTIONS %%%%%%%%%%
-
-% packages needed to make xelatex work properly
-\usepackage{fontspec, xltxtra, xunicode}
 
 % this package needs to be configured
 \usepackage{microtype}
 
-%set a default font, in case no option is passed
-\setmainfont[Ligatures=Common,			% use only common ligatures
-			 Numbers=OldStyle,			% use old style numbers for class
-			 Mapping=tex-text			% map common latex macros
-			]{Adobe Caslon Pro}
-
-% Choose Adobe Caslon Pro as the font. This font, plus ligatures and old
-% style figures, gives the closest approximation to the Cambridge
-% University Press style.
-\DeclareOption{caslon}{ 
-	\setmainfont[Ligatures=Common,		% use only common ligatures
-				 Numbers=OldStyle,		% use old style numbers for class
-				 Mapping=tex-text		% map common latex macros
-				]{Adobe Caslon Pro}
-			}
-
-% Choose Minion Pro as the font. This font is a bit plainer than Caslon,
-% which makes the typeset document more understated.
-\DeclareOption{minion}{
-	\setmainfont[Ligatures=Common,		% use only common ligatures
-				 Numbers=OldStyle,		% use old style numbers for class
-				 Mapping=tex-text		% map common latex macros
-				]{Minion Pro}
-			}
+% use Palatino with old style figures
+\usepackage[osf]{mathpazo}
 
 % Pass all other options to the article class
 \DeclareOption* {\PassOptionsToClass{\CurrentOption}{article}}
@@ -79,33 +55,20 @@
 % Process options and we're done with this section
 \ProcessOptions  \relax
 
-% Set a monospace font for code, in case it's needed
-\setmonofont[Scale=0.8]{Monaco} 
-
-
 % LOAD PACKAGES %%%%%%%%%%
 
 % Only packages which are absolutely necessary for the package to work
-% with XeLaTeX % are called in this class itself. Other options that I
+% with LaTeX % are called in this class itself. Other options that I
 % prefer to use % are declared in the document itself, so that the
 % document can % be used with other document classes (including plain
 % LaTeX classes without needing to change anything besides the
 % \documentclass declaration.
-
-% Load the article class, which is being modified
-\LoadClass{article}
-
-% packages needed to make xelatex work properly
-%\usepackage{fontspec, xltxtra, xunicode}
 
 % A better way to change case. Needed for the small caps titles.
 \usepackage[overload]{textcase}
 
 
 % DECLARE OR RENEW COMMANDS %%%%%%%%%%
-
-% Custom ampersand
-\newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
 
 % Environment for the bibliographic information of a reviewed book
 \newenvironment{reviewedbook}{\begin{quote}}{\end{quote}}
